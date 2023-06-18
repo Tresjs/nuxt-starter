@@ -1,4 +1,9 @@
-# Nuxt 3 Minimal Starter
+![repo-banner](https://github.com/Tresjs/playground/raw/main/public/github-banner.png)
+
+# TresJS 🚀 Starter + Nuxt 
+
+> Quick start repo for [Nuxt](https://nuxt.com) projects with [TresJS](https://tresjs.org) integration via  [`@tresjs/nuxt` module](https://tresjs.org/guide/nuxt.html). 
+
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
