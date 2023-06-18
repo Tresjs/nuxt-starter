@@ -1,4 +1,4 @@
-![repo-banner](https://github.com/Tresjs/playground/raw/main/public/github-banner.png)
+![repo-banner](/public/repo-banner.png)
 
 # TresJS 🚀 Starter + Nuxt 
 
