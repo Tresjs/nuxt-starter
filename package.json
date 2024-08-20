@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@tresjs/cientos": "^2.1.4",
+    "@tresjs/cientos": "^4.0.0",
     "@tresjs/nuxt": "1.0.0-beta.2",
     "@tresjs/post-processing": "^0.2.0",
     "@types/node": "^18",
