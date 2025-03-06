@@ -24,12 +24,15 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@tresjs/cientos": "^2.1.4",
-    "@tresjs/nuxt": "1.0.0-beta.2",
-    "@tresjs/post-processing": "^0.2.0",
+    "@tresjs/cientos": "^4.1.1",
+    "@tresjs/nuxt": "3.0.6",
+    "@tresjs/post-processing": "^2.1.0",
     "@types/node": "^18",
-    "@types/three": "^0.152.1",
-    "nuxt": "^3.5.2",
-    "three": "^0.153.0"
+    "@types/three": "^0.173.0",
+    "nuxt": "3.13.0",
+    "three": "^0.173.0"
+  },
+  "resolutions": {
+    "@nuxt/kit": "3.13.0"
   }
 }
