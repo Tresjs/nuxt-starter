@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { extend } from '@tresjs/core'
-import { BasicShadowMap, NoToneMapping, SRGBColorSpace, Bloom } from "three";
-
-// Add the element to the catalogue
-extend({ Bloom })
+import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
+import { BloomPmndrs, EffectComposerPmndrs } from '@tresjs/post-processing'
 
 const gl = {
   clearColor: "#18181B",
@@ -32,7 +30,7 @@ const bloomParams = reactive({
       <OrbitControls />
 
       <EffectComposer :depth-buffer="true">
-        <Bloom v-bind="bloomParams" />
+        <BloomPmndrs v-bind="bloomParams" />
       </EffectComposer>
 
       <Suspense>
