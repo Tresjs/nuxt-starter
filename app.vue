@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
+import { extend } from '@tresjs/core'
+import { BasicShadowMap, NoToneMapping, SRGBColorSpace, Bloom } from "three";
+
+// Add the element to the catalogue
+extend({ Bloom })
 
 const gl = {
   clearColor: "#18181B",
