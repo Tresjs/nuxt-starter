@@ -25,14 +25,14 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@tresjs/cientos": "^4.1.1",
-    "@tresjs/nuxt": "3.0.6",
+    "@tresjs/nuxt": "^4.0.0",
     "@tresjs/post-processing": "^2.1.0",
-    "@types/node": "^18",
+    "@types/node": "^22.15.21",
     "@types/three": "^0.173.0",
-    "nuxt": "3.13.0",
+    "nuxt": "^3.17.4",
     "three": "^0.173.0"
   },
   "resolutions": {
-    "@nuxt/kit": "3.13.0"
+    "@nuxt/kit": "3.17.4"
   }
 }
