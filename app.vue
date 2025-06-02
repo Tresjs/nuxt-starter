@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { extend } from '@tresjs/core'
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
-import { BloomPmndrs, EffectComposerPmndrs } from '@tresjs/post-processing'
+import { BloomPmndrs } from '@tresjs/post-processing'
 
 const gl = {
   clearColor: "#18181B",
