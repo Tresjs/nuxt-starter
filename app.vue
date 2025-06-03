@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
+import { BloomPmndrs } from '@tresjs/post-processing'
 
 const gl = {
   clearColor: "#18181B",
@@ -28,7 +29,7 @@ const bloomParams = reactive({
       <OrbitControls />
 
       <EffectComposer :depth-buffer="true">
-        <Bloom v-bind="bloomParams" />
+        <BloomPmndrs v-bind="bloomParams" />
       </EffectComposer>
 
       <Suspense>
