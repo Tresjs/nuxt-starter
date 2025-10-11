@@ -24,10 +24,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@tresjs/cientos": "^4.1.1",
-    "@tresjs/nuxt": "^4.0.0",
-    "@tresjs/post-processing": "^2.1.0",
-    "@types/node": "^22.15.21",
+    "@tresjs/cientos": "^5.1.0",
+    "@tresjs/nuxt": "^5.1.0",
+    "@tresjs/post-processing": "^3.1.0",
+    "@types/node": "^22.18.10",
     "@types/three": "^0.173.0",
     "nuxt": "^3.17.4",
     "three": "^0.173.0"
