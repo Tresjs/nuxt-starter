@@ -28,9 +28,9 @@
     "@tresjs/nuxt": "^5.1.0",
     "@tresjs/post-processing": "^3.1.0",
     "@types/node": "^22.18.10",
-    "@types/three": "^0.173.0",
+    "@types/three": "^0.180.0",
     "nuxt": "^3.17.4",
-    "three": "^0.173.0"
+    "three": "^0.180.0"
   },
   "resolutions": {
     "@nuxt/kit": "3.17.4"

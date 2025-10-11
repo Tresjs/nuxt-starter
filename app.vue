@@ -23,8 +23,8 @@ const bloomParams = reactive({
   <div style="height: 100vh">
     <TresCanvas v-bind="gl">
       <TresPerspectiveCamera
-        :position="[-5.3, 8.3, 10.6]"
-        :look-at="[0, 0, 0]"
+          :position="[-5.3, 8.3, 10.6]"
+          :look-at="[0, 1, 0]"
       />
       <OrbitControls />
 

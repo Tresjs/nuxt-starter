@@ -1,47 +1,69 @@
 <script setup lang="ts">
-import { MeshBasicMaterial, Texture } from 'three'
+import { MeshBasicMaterial } from 'three'
 
-const { nodes } = await useGLTF('/nuxt-stones.glb')
-const stonesTexture = await useTexture(['/RockBaked.png'])
-const littleStonesTexture = await useTexture(['/LittleRocksBaked.png'])
+const { state, nodes } = useGLTF('/nuxt-stones.glb')
 
-stonesTexture.flipY = false
-littleStonesTexture.flipY = false
-
-const stoneBakedMaterial = new MeshBasicMaterial({
-  map: stonesTexture as Texture,
+watch(state, (state) => {
+  console.log(state)
 })
 
-const LittleStonesBakedMaterial = new MeshBasicMaterial({
-  map: littleStonesTexture as Texture,
+const stone = computed(() => nodes.value.Stone)
+const stoneCarved = computed(() => nodes.value.StoneCarved)
+const logo = computed(() => nodes.value.Logo)
+const littleStones = computed(() => Object.values(nodes.value).filter(node => node.name.includes('Stone00')))
+
+const { state: stonesTexture } = useTexture('/RockBaked.png')
+const { state: littleStonesTexture } = useTexture('/LittleRocksBaked.png')
+
+watch(stonesTexture, (texture) => {
+  texture.flipY = false
 })
 
-nodes.Stone.material = stoneBakedMaterial
-nodes.StoneCarved.material = stoneBakedMaterial
-
-nodes.Logo.material.emissiveIntensity = 10
-
-const littleStones = Object.values(nodes).filter(node => node.name.includes('Stone00'))
-
-littleStones.forEach(stone => {
-  stone.material = LittleStonesBakedMaterial
+watch(littleStonesTexture, (texture) => {
+  texture.flipY = false
 })
 
-const { onLoop } = useRenderLoop()
+const stoneBakedMaterial = computed(() => new MeshBasicMaterial({
+  map: stonesTexture.value,
+}))
 
-onLoop(({ elapsed }) => {
-  nodes.Logo.material.emissiveIntensity = Math.sin(elapsed) * 6 + 7
+const littleStonesBakedMaterial = computed(() => new MeshBasicMaterial({
+  map: littleStonesTexture.value,
+}))
+
+watch([stone, stoneCarved, stoneBakedMaterial], ([stone, stoneCarved, texture]) => {
+  if (stone) {
+    stone.material = texture
+  }
+  if (stoneCarved) {
+    stoneCarved.material = texture
+  }
+})
+
+watch([littleStones, littleStonesBakedMaterial], ([littleStones, texture]) => {
+  littleStones.forEach((stone) => {
+    stone.material = texture
+  })
+})
+
+watch(logo, (logo) => {
+  logo.material.emissiveIntensity = 10
+})
+
+const { onBeforeRender } = useLoop()
+
+onBeforeRender(({ elapsed }) => {
+  if (logo.value) {
+    logo.value.material.emissiveIntensity = Math.sin(elapsed) * 6 + 7
+  }
 })
 </script>
 
 <template>
-  <primitive :object="nodes.Orbs" />
-  <primitive :object="nodes.Logo" />
-  <primitive :object="nodes.Stone" />
-  <primitive :object="nodes.StoneCarved" />
-  <primitive 
-    v-for="stone in littleStones" 
-    :key="stone.id" 
-    :object="stone" 
-  />
+  <TresGroup rotation-y="1.57">
+    <primitive
+        v-if="state"
+        :object="state.scene"
+    />
+  </TresGroup>
 </template>
